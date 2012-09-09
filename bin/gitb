@@ -34,8 +34,8 @@ end
 def apply_status branch
   status = `git status --porcelain`
 #  return red "*#{branch}*" if /^\?/ =~ status
-  return red "<#{branch}>" if /^([MARCD]) / =~ status
-  return yellow "{#{branch}}" if /^ ([MARCD])/ =~ status
+  return red "<#{branch}>" if /^ ([MARCD])/ =~ status
+  return yellow "{#{branch}}" if /^([MARCD]) / =~ status
   return green "(#{branch})"
 end
 
