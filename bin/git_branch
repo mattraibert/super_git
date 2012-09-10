@@ -17,18 +17,8 @@ def yellow s
   "#{YELLOW}#{s}#{NO_COLOR}"
 end
 
-def project_dirs
-  Dir["**/.git"].map {|git_dir| File.dirname(git_dir) }
-end
-
-def do_branch
-  outputs = project_dirs.map do |project_dir|
-    status = ""
-    Dir.chdir(project_dir) do
-      "#{project_dir}: #{apply_status branch}"
-    end
-  end
-  puts outputs.join "\n"
+def branch
+  `git branch`.lines.select {|line| /^\*/ =~ line }.first.sub(/^\* /,"").chomp
 end
 
 def apply_status branch
@@ -38,8 +28,4 @@ def apply_status branch
   return green "(#{branch})"
 end
 
-def branch
-  `git branch`.lines.select {|line| /^\*/ =~ line }.first.sub(/^\* /,"").chomp
-end
-
-do_branch
+puts apply_status branch
