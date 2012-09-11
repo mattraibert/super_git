@@ -1,31 +1,70 @@
 #!/usr/bin/env ruby
 
-RED="\033[0;31m"
-YELLOW="\033[0;33m"
-GREEN="\033[0;32m"
-NO_COLOR="\033[0m"
+module Color
+  RED="\033[0;31m"
+  YELLOW="\033[0;33m"
+  GREEN="\033[0;32m"
+  NO_COLOR="\033[0m"
 
-def red s
-  "#{RED}#{s}#{NO_COLOR}"
+  class << self
+    def red (s)
+      "#{RED}#{s}#{NO_COLOR}"
+    end
+
+    def green (s)
+      "#{GREEN}#{s}#{NO_COLOR}"
+    end
+
+    def yellow (s)
+      "#{YELLOW}#{s}#{NO_COLOR}"
+    end
+  end
 end
 
-def green s
-  "#{GREEN}#{s}#{NO_COLOR}"
-end
+module Braces
+  class << self
+    def angle(s)
+      "<#{s}>"
+    end
 
-def yellow s
-  "#{YELLOW}#{s}#{NO_COLOR}"
+    def curly(s)
+      "{#{s}}"
+    end
+
+    def parens(s)
+      "(#{branch})"
+    end
+  end
 end
 
 def branch
-  `git branch`.lines.select {|line| /^\*/ =~ line }.first.sub(/^\* /,"").chomp
+  current_branch = `git branch`.lines.select { |line| /^\*/ =~ line }.first || ""
+  current_branch.sub(/^\* /, "").chomp
 end
 
-def apply_status branch
-  status = `git status --porcelain`
-  return red "<#{branch}>" if /^ ([MARCD])/ =~ status
-  return yellow "{#{branch}}" if /^([MARCD]) / =~ status
-  return green "(#{branch})"
+module Status
+  class << self
+    def unstaged?
+      status = `git status --porcelain`
+      /^ ([MARCD])/ =~ status
+    end
+
+    def staged?
+      status = `git status --porcelain`
+      /^([MARCD]) / =~ status
+    end
+
+    def clean?
+      status = `git status --porcelain`
+      /.*/ =~ status
+    end
+  end
+end
+
+def apply_status(branch)
+  return Color.red Braces.angle branch if Status.unstaged?
+  return Color.yellow Braces.curly branch if Status.staged?
+  Color.green Braces.parens branch
 end
 
 puts apply_status branch
