@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.homepage = "http://github.com/mattraibert/super_git"
   gem.author = "Matt J Raibert"
   gem.email = 'mattraibert@gmail.com'
-  gem.executables = ["gitb", "gitst", "git_branch"]
+  gem.executables = ["gitb", "gitst", "git_branch", "gitall"]
   gem.files = ["Rakefile", "README.md", "LICENSE.txt"]
   gem.files += Dir["lib/**/*"]
   gem.test_files = Dir["test/**/*"]

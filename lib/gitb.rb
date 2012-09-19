@@ -1,6 +1,6 @@
 require 'git_branch'
 require 'gits'
-require 'gitst'
+require 'gitall'
 
 def do_branch
   do_this_to_all_the_gits do |project_dir|
