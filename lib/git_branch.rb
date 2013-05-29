@@ -12,4 +12,3 @@ def apply_status(branch)
   return Color.yellow Braces.curly branch if Status.staged?
   Color.green Braces.parens branch
 end
-

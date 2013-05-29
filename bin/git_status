@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'gitst'
+
+puts pretty_status
