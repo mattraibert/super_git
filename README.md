@@ -1,12 +1,12 @@
-# Posto
+# Super git
 
 Sort your todo list from the command line.
 
 ## Naming
 
-Posto is named for [Del Posto](http://www.delposto.com/) in New York City -- a restaurant that has been on my todo list for quite a while.
+Super git is named for obvious reasons
 
 ## Copyright
 
-Copyright (c) 2012 Matt Raibert.
-Grasshopper is available under the GPL v3 see LICENSE.txt for further details.
+Copyright (c) 2013 Matt J Raibert.
+Super git is available under the GPL v3 see LICENSE.txt for further details.
