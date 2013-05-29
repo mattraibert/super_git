@@ -12,4 +12,6 @@ Gem::Specification.new do |gem|
   gem.files = ["Rakefile", "README.md", "LICENSE.txt"]
   gem.files += Dir["lib/**/*"]
   gem.test_files = Dir["test/**/*"]
+  gem.add_development_dependency('posto')
+  gem.add_development_dependency('grasshopper')
 end

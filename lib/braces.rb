@@ -9,7 +9,7 @@ module Braces
     end
 
     def parens(s)
-      "(#{branch})"
+      "(#{s})"
     end
   end
 end
