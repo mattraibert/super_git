@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'gitb'
+require 'gitall'
+require 'git_branch'
 
-do_branch
+do_this_to_all_the_gits { apply_status branch }
