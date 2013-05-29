@@ -7,11 +7,6 @@ def do_status
     status.gsub!(/^([MARCD]) /, "    {stage}      \\1")
     status.gsub!(/^[MARCD ]([MARCD])/, " <working copy>  \\1")
     status.gsub!(/^\?/,         "    **new**      ")
-    "#{' '*16} #{branch_local}#{status}"
-    "#{'#'*16} #{project_dir} #{'#'*16}\n#{status}"
+    "\n#{status}"
   end
-end
-
-def branch_local
-  `git branch`.lines.select {|line| /^\*/ =~ line }.first.sub(/^\* /,"")
 end

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = 'super_git'
-  gem.version = "0.0.1.SNAPSHOT"
+  gem.version = "0.0.2.SNAPSHOT"
   gem.license = "GPLv3"
   gem.summary = "helps you keep track of all your gits"
   gem.homepage = "http://github.com/mattraibert/super_git"

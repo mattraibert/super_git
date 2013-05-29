@@ -2,4 +2,4 @@
 
 require 'gitall'
 
-do_this_to_all_the_gits { |project_dir| "#{project_dir}: #{`#{ARGV.join(" ")}`}" }
+do_this_to_all_the_gits { |project_dir| `#{ARGV.join(" ")}` }

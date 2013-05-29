@@ -6,7 +6,7 @@ def do_this_to_all_the_gits
     Dir.chdir(project_dir) do
       status = yield(project_dir).chomp
     end
-    status
+    "#{project_dir}: #{status}"
   end
   puts outputs.join "\n"
 end
