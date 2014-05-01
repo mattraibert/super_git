@@ -1,10 +1,10 @@
 # Super git
 
-Sort your todo list from the command line.
+Do the same thing to all the git repos
 
 ## Naming
 
-Super git is named for obvious reasons
+Super git is named because it lets you do stuff to all your gits
 
 ## Copyright
 
